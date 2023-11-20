@@ -1,0 +1,20 @@
+<h1 [ngStyle]="{'color': hoverColor ? selectedColor : 'black'}" (mouseenter)="toggleHighlight()" (mouseleave)="toggleHighlight()" style="text-align: center;">Click Your Favourite And Hover Me</h1>
+
+<div style="display: flex; justify-content: center;gap: 20px;">
+<button (click)="selectColor('red')" style="cursor: pointer; &:hover{color:red;}">Red</button>
+<button (click)="selectColor('blue')" style="cursor: pointer;">Blue</button>
+<button (click)="selectColor('green')" style="cursor: pointer;">Green</button>
+<button *ngIf="selectedColor !== ''" (click)="selectColor('')" style="cursor: pointer;">Reset</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

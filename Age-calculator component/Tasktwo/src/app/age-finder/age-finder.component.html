@@ -1,0 +1,10 @@
+<div>
+    <h2>Age Calculator</h2>
+    <input type="number" [(ngModel)]="birthYear" placeholder="Enter birth year" (input)="findAge()">
+    
+    <div *ngIf="age > 0">
+      <p>Your age is {{ age }} years old.</p>
+      <p>You belong to the group of: {{ ageRange }}</p>
+    </div>
+  </div>
+  

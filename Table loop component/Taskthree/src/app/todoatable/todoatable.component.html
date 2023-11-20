@@ -1,0 +1,32 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Todo</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of Todos; let even = even; let odd = odd; "
+      [style.background-color]="even ? '#e4ebe5' : ''">
+        <ng-container *ngIf="!todo.completed">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.todo }}</td>
+        <td [style.color]="todo.completed ? 'green' : 'red'">{{ todo.completed ? 'Yes' : 'No' }}</td>
+      </ng-container>
+     
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>Hip!</p>
+<ng-template #sample>
+  <p>Shraj</p>
+</ng-template>
+<p>Hooray!</p>
+
+<div *ngTemplateOutlet="sample">
+
+</div>
+
+<!-- <h1 [innerText]="title"></h1> -->

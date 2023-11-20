@@ -1,0 +1,10 @@
+<button mat-raised-button (click)="goBack()" style="margin: 1rem;" >Go Back</button>
+
+<div *ngIf="selectedUser" >
+    <h2 style="display: flex; justify-content: center;">User Details</h2>
+    <p style="display: flex; justify-content: center;">Name: {{ selectedUser?.name }}</p>
+    <p style="display: flex; justify-content: center;">Username: {{ selectedUser?.username }}</p>
+    <p style="display: flex; justify-content: center;">Email: {{ selectedUser?.email }}</p>
+    <p style="display: flex; justify-content: center;">Phone: {{ selectedUser?.phone }}</p>
+    <p style="display: flex; justify-content: center;">Website: {{ selectedUser?.website }}</p>
+</div>

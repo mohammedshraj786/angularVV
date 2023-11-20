@@ -1,0 +1,38 @@
+<div class="container">
+    
+<form #myData="ngForm" (ngSubmit)="onSubmit(myData)">
+    <h2 style="margin-bottom: 50px;">Employee Registration Form</h2>
+
+    <div class="feild">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" ngModel>
+      </div>
+      
+      <div class="feild" >
+        <label for="lastName">Last Name:</label>
+        <input type="text"  id="lastName" name="lastName" ngModel>
+      </div>
+      
+      <div class="feild" >
+        <label for="email">Email:</label>
+        <input type="email"  id="email" name="email" ngModel>
+      </div>
+      
+      <div class="feild" >
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text"  id="phoneNumber" name="phoneNumber" ngModel>
+      </div>
+      
+      <div class="feild">
+        <label for="department">Department:</label>
+        <select  id="department" name="department" ngModel>
+          <option value="" disabled selected>Select Department</option>
+          <option value="IT">IT</option>
+          <option value="HR">HR</option>
+          <option value="Finance">Finance</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="button">Submit</button>
+</form>
+</div>

@@ -1,0 +1,6 @@
+<h2>Parent Component</h2>
+<input [(ngModel)]="parentValue" placeholder="Enter value for Child" />
+<app-child1 [childValueFromParent]="parentValue" (sendToParent)="receiveChildData($event)"></app-child1>
+
+<!-- <h2>One way data binding</h2> -->
+<!-- <h3>{{ parentValue }}</h3> -->

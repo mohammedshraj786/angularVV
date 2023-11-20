@@ -1,0 +1,48 @@
+<div *ngIf="!showDetails">
+<div style="display: flex; justify-content: center; padding: 15px;">
+
+<table mat-table [dataSource]="userList" class="mat-elevation-z10" style="width: 1000px;">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef style="font-size: larger;font-weight: bolder; color: black;"> Name </th>
+      <td mat-cell *matCellDef="let user"> {{ user.name }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef style="font-size: larger;font-weight: bolder; color: black;"> UserName </th>
+      <td mat-cell *matCellDef="let user"> {{ user.username }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef style="font-size: larger;font-weight: bolder; color: black;"> Email </th>
+      <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef style="font-size: larger;font-weight: bolder; color: black;"> PhoneNo </th>
+      <td mat-cell *matCellDef="let user"> {{ user.phone }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="website" >
+      <th mat-header-cell *matHeaderCellDef style="font-size: larger;font-weight: bolder; color: black;"> Website </th>
+      <td mat-cell *matCellDef="let user"> {{ user.website }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef style="font-size: larger; font-weight: bolder; color: black;"> Actions </th>
+        <td mat-cell *matCellDef="let user">
+          <button mat-raised-button (click)="showUserDetails(user)">View Details</button>
+        </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let user; columns: displayedColumns;"></tr>
+  </table>
+</div>
+</div>
+
+  <app-user-details
+  [selectedUser]="selectedUser"
+  *ngIf="showDetails"
+  (goBackEvent)="goBack()">
+</app-user-details>

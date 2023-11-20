@@ -1,0 +1,38 @@
+<div class="container">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <h2 style="margin-bottom: 50px;">Employee Registration Form</h2>
+
+    <div class="feild">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    
+    <div class="feild">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    
+    <div class="feild">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+    
+    <div class="feild">
+      <label for="phoneNo">Phone Number:</label>
+      <input type="text" id="phoneNo" formControlName="phoneNo">
+    </div>
+    
+    <div class="feild">
+      <label for="department">Department:</label>
+      <select id="department" formControlName="department">
+        <option value="" disabled>Select Department</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+      </select>
+    </div>
+    
+    <button type="submit"  class="button">Submit</button>
+  </form>
+  
+</div>
