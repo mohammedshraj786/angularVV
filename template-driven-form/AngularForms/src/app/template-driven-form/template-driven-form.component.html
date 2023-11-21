@@ -1,38 +1,144 @@
-<div class="container">
-    
-<form #myData="ngForm" (ngSubmit)="onSubmit(myData)">
-    <h2 style="margin-bottom: 50px;">Employee Registration Form</h2>
+ <h2 style="text-align: center; margin: 20px; font-weight: bolder;">Employee Registration Form</h2>
 
-    <div class="feild">
+<div class="container">
+
+  <form #myData="ngForm" (ngSubmit)="onSubmit(myData)" novalidate>
+
+    <div class="row">
+
+      <div class="feild half-width" [class.error]="firstName.invalid && (firstName.touched || firstName.dirty)">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" ngModel>
+        <input type="text" id="firstName" name="firstName" 
+        ngModel required minlength="5" pattern="[A-Z][a-zA-Z]*" #firstName="ngModel" (keyup)="firstName.control.markAsTouched()">
+
+        <span *ngIf="firstName.invalid && (firstName.touched && firstName.dirty)" class="error-msg">
+          Required with a starting capital letter and minimum 5 characters & no digits are allowed
+        </span>
       </div>
-      
-      <div class="feild" >
+
+      <div class="feild half-width" [class.error]="lastName.invalid && (lastName.touched || lastName.dirty)">
         <label for="lastName">Last Name:</label>
-        <input type="text"  id="lastName" name="lastName" ngModel>
+        <input type="text" id="lastName" name="lastName" 
+        ngModel required minlength="3" pattern="[A-Z][a-zA-Z]*" #lastName="ngModel" (keyup)="lastName.control.markAsTouched()">
+
+        <span *ngIf="lastName.invalid && (lastName.touched && lastName.dirty)" class="error-msg">
+          Required with a starting capital letter and minimum 3 characters & no digits are allowed
+        </span>
       </div>
-      
-      <div class="feild" >
+    </div>
+
+    <div class="row">
+
+      <div class="feild half-width" [class.error]="email.invalid && (email.touched || email.dirty)">
         <label for="email">Email:</label>
-        <input type="email"  id="email" name="email" ngModel>
+        <input type="email" id="email" name="email" ngModel required pattern="[a-zA-Z0-9._%+-]+@gmail\.com" #email="ngModel"
+          (keyup)="email.control.markAsTouched()">
+        <span *ngIf="email.invalid && (email.touched || email.dirty)" class="error-msg">Enter a valid email address ending with '@gmail.com'.</span>
       </div>
-      
-      <div class="feild" >
+
+      <div class="feild half-width" [class.error]="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)">
         <label for="phoneNumber">Phone Number:</label>
-        <input type="text"  id="phoneNumber" name="phoneNumber" ngModel>
+        <input type="text" id="phoneNumber" name="phoneNumber" ngModel required maxlength="10" pattern="[0-9]{10}" #phoneNumber="ngModel"
+          (keyup)="phoneNumber.control.markAsTouched()">
+        <span *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="error-msg">Please enter a 10-digit phone number</span>
       </div>
-      
-      <div class="feild">
-        <label for="department">Department:</label>
-        <select  id="department" name="department" ngModel>
-          <option value="" disabled selected>Select Department</option>
-          <option value="IT">IT</option>
-          <option value="HR">HR</option>
-          <option value="Finance">Finance</option>
+    </div>
+
+    <div class="row">
+
+      <div class="feild half-width" [class.error]="country.invalid && (country.touched || country.dirty)">
+        <label for="country">Country:</label>
+        <select id="country" name="country" ngModel required #country="ngModel">
+          <option value="" disabled selected>Select Country</option>
+          <option value="India">India</option>
+          <option value="Srilanka">Sri Lanka</option>
+          <option value="Canada">Canada</option>
         </select>
+        <span *ngIf="country.invalid && (country.touched || country.dirty)" class="error-msg">Please select a country.</span>
       </div>
-      
-      <button type="submit" class="button">Submit</button>
-</form>
+
+      <div class="feild half-width" [class.error]="state.invalid && (state.touched || state.dirty)">
+        <label for="state">State:</label>
+        <select id="state" name="state" ngModel required #state="ngModel">
+          <option value="" disabled selected>Select State</option>
+          <option value="state1">Gujarat</option>
+          <option value="state2">Maharashtra</option>
+          <option value="state3">Odisha</option>
+        </select>
+        <span *ngIf="state.invalid && (state.touched || state.dirty)" class="error-msg">Please select a state.</span>
+      </div>
+    </div>
+
+    <div class="row">
+<div class="feild half-width" [class.error]="gender.invalid && (gender.touched || gender.dirty)">
+  <label for="gender">Gender:</label>
+  <select id="gender" name="gender" ngModel required #gender="ngModel">
+      <option value="" disabled selected>Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="transition">Transition</option>
+  </select>
+  <span *ngIf="gender.invalid && (state.touched || state.dirty)" class="error-msg">Please select the gender</span>
+</div>
+
+<div class="feild half-width" [class.error]="marritalstatus.invalid && (marritalstatus.touched || marritalstatus.dirty)">
+  <label for="marritalstatus">Marrital Status:</label>
+  <select name="marritalstatus" id="marritalstatus" ngModel required #marritalstatus="ngModel">
+    <option value="" disabled selected>Select Marrital Status</option>
+    <option value="Married">Married</option>
+    <option value="Unmarried">Un-Married</option>
+    <option value="others">Others</option>
+  </select>
+</div>
+    </div>
+
+    <div class="row">
+      <div class="feild half-width" [class.error]="dob.invalid && (dob.touched || dob.dirty)">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" ngModel required #dob="ngModel"
+               (input)="calculateAge(dob.value)">
+        <span *ngIf="dob.invalid && (dob.touched || dob.dirty)" class="error-msg">Please enter a valid date of birth.</span>
+      </div>
+  
+      <div class="feild half-width">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" [value]="age" readonly>
+      </div>
+    </div>
+
+
+<div class="row">
+  <div class="feild half-width" [class.error]="password.invalid && (password.touched || password.dirty)">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel required 
+           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$"
+           #password="ngModel">
+    <span *ngIf="password.invalid && (password.touched || password.dirty)" class="error-msg">
+      Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, one number, and one special character.
+    </span>
+  </div>
+
+  <div class="feild half-width" [class.error]="confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty)">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" ngModel required 
+           [pattern]="password.value" #confirmPassword="ngModel">
+    <span *ngIf="confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty)" class="error-msg">
+      Passwords should match.
+    </span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="feild">
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" [(ngModel)]="selectedImage">
+    <span *ngIf="!selectedImage" class="error-msg">Please select an image.</span>
+  </div>
+</div>
+    <div class="row">
+      <div class="feild">
+        <button type="submit" class="button" [class.disabled]="!myData.valid" [disabled]="!myData.valid">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
