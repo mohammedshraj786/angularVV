@@ -1,28 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { RouterModule , Routes } from '@angular/router';
-import { PostComponent } from './post/post.component';
-import { StudentComponent } from './student/student.component';
+import { ContactComponent } from './contact/contact.component';
+// import { RouterModule , Routes } from '@angular/router';
 
-
- 
+// const routerMain:Routes =[
+//   {
+//     path:'' , component:HomeComponent 
+//   },
+//   {
+//     path:'contact' , component:ContactComponent
+//   }
+// ]
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
-    ContactUsComponent,
-    PostComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    // RouterModule.forRoot(routerMain)
   ],
   providers: [],
   bootstrap: [AppComponent]

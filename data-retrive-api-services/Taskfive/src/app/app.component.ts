@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AjayService } from './ajay.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Taskfive';
+
+  constructor(public ajay:AjayService){
+    // console.log(ajay.AddCount());
+    // console.log(ajay.value);
+    
+    
+  }
+
 }

@@ -7,6 +7,7 @@ import { UserallListComponent } from './userall-list/userall-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { UserDetailsComponent } from './user-details/user-details.component'
+import { AjayService } from './ajay.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { UserDetailsComponent } from './user-details/user-details.component'
     HttpClientModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [AjayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

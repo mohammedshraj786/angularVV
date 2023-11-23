@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AjayService } from '../ajay.service';
  
 @Component({
   selector: 'app-userall-list',
   templateUrl: './userall-list.component.html',
-  styleUrls: ['./userall-list.component.css']
+  styleUrls: ['./userall-list.component.css'],
+  providers:[AjayService]
 })
 export class UserallListComponent implements OnInit 
 {
@@ -12,7 +14,7 @@ export class UserallListComponent implements OnInit
   userList:any[]=[];
   showDetails=false;
   selectedUser:any=null;
-  constructor(private httpClient:HttpClient) 
+  constructor(private httpClient:HttpClient,public ajay:AjayService) 
   {
     this.userList=[];
   }
