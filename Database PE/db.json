@@ -1,0 +1,22 @@
+{newEmployees
+  "newEmployees": [
+    {
+      "isAdmin": true,
+      "firstName": "Mohammed",
+      "lastName": "Shraj",
+      "email": "mohammed@gmail.com",
+      "password": "Moha@123",
+      "confirmPassword": "Moha@123",
+      "id": 1
+    },
+    {
+      "isAdmin": false,
+      "firstName": "Ajay",
+      "lastName": "I",
+      "email": "Ajay@gmail4200.com",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 2
+    }
+  ]
+}
