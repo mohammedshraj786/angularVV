@@ -1,0 +1,25 @@
+.box-content {
+    display: flex;
+    justify-content: center;
+    padding:  10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    color: inherit;
+    text-decoration: none;
+    width: 180px;
+    max-height: 100%;
+}
+
+.box-content:hover {
+    background-color: #f0f0f0;
+}
+
+.home-box:hover,
+.categories-box:hover,
+.profile-box:hover {
+    border-color: #007bff;
+}
+
+
+  

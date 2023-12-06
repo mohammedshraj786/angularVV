@@ -1,0 +1,21 @@
+<div class="container" style="display: flex; justify-content: center; gap: 20px; padding: 30px; margin: 20px;">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of filteredProducts">
+        <div class="card mb-4" style="width: 20rem;">
+          <div style="height: 200px; width: 317px; overflow: hidden;">
+            <img [src]="getImageUrl(product.imageBase64)" class="card-img-top" alt="Product Image" style="height: 100%; width: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body" style="display: flex; flex-direction: column; gap: 10px;">
+            <h5 class="card-title" style="flex: 10%;">{{ product.productName }}</h5>
+            <p class="card-text" style="flex: 20%;">{{ product.productDescription }}</p>
+            <h4 class="card-text" style="flex: 10%;">Price: ₹ {{ product.productPrice }}</h4>
+          </div>
+          <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 5px;">
+            <button style="flex: 20%; border-radius: 15px; margin-left: 5px;height: 40px;">Buy Now</button>
+            <button style="flex: 20%; border-radius: 15px; margin-right: 5px; height: 40px;">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

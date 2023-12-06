@@ -1,0 +1,35 @@
+.wrapper {
+    display: flex;
+    overflow: hidden;
+  }
+  
+  app-sidebar {
+    flex: 0 0 50px; 
+    position:fixed;
+    height: 100%;
+    overflow:hidden;
+    margin: 86px;
+    width: 18%;
+    margin-left: -3px;
+    left: 0px;
+  }
+  
+  .content {
+    flex: 1;
+    justify-content: center;
+    margin-bottom: 300px !important;
+    padding: 100px !important;
+    padding-top: 50px !important;
+    margin-left: 200px;
+    margin-top: 86px;
+
+  }
+
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    
+  }
+  
+  
